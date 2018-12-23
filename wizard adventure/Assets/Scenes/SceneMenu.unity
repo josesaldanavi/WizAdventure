@@ -113,6 +113,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &552728316 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1385218407164906, guid: c6cd8876ec52f474e82690aee8ef06cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1010326414}
+--- !u!95 &552728318 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95552962245220642, guid: c6cd8876ec52f474e82690aee8ef06cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1010326414}
 --- !u!1 &661057219
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +257,63 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6cd8876ec52f474e82690aee8ef06cd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1259169003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1259169005}
+  - component: {fileID: 1259169004}
+  m_Layer: 0
+  m_Name: PlayerController
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1259169004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259169003}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d282d30d3caf047976f9da6e8c7637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swapN: 0
+  swapF: 0
+  swapI: 0
+  wizNormal: {fileID: 0}
+  wiz_normal: {fileID: 982009546}
+  wiz_IdleN: {fileID: 0}
+  speedN: 3
+  activeWN: 0
+  wizIce: {fileID: 0}
+  wiz_ice: {fileID: 552728318}
+  wiz_IdleI: {fileID: 0}
+  speedI: 6
+  activeWI: 0
+  wizFire: {fileID: 0}
+  wiz_fire: {fileID: 2131328208}
+  speedF: 5
+  activeWF: 0
+--- !u!4 &1259169005
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259169003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 3.02, z: -0.03125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1460860516
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,17 +605,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d282d30d3caf047976f9da6e8c7637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swapN: 0
+  swapF: 0
+  swapI: 0
+  wizNormal: {fileID: 2031018572}
   wiz_normal: {fileID: 982009546}
   wiz_IdleN: {fileID: 0}
-  speedN: 0
+  speedN: 4
   activeWN: 0
-  wiz_ice: {fileID: 0}
+  wizIce: {fileID: 552728316}
+  wiz_ice: {fileID: 552728318}
   wiz_IdleI: {fileID: 0}
-  speedI: 0
+  speedI: 3
   activeWI: 0
-  wiz_fire: {fileID: 0}
-  wiz_IdleF: {fileID: 0}
-  speedF: 0
+  wizFire: {fileID: 2131328205}
+  wiz_fire: {fileID: 2131328208}
+  speedF: 2
   activeWF: 0
 --- !u!1001 &2072443835
 Prefab:
@@ -689,3 +761,13 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd5a1a4ed19dfb942ac4cb5bf57888b7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2131328205 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1757052577280720, guid: dc11f843a8ef8ed41b3fd2c07b57e892,
+    type: 2}
+  m_PrefabInternal: {fileID: 2072443835}
+--- !u!95 &2131328208 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95871343817612964, guid: dc11f843a8ef8ed41b3fd2c07b57e892,
+    type: 2}
+  m_PrefabInternal: {fileID: 2072443835}
