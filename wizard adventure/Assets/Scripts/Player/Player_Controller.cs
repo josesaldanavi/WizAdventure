@@ -1,9 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Controller : MonoBehaviour {
-    [Header ("WizNormal") ]
+
+    /*Boton de cambio debe ser implementado en un metodo donde lo llame un boton de la UI Boton-Player*/
+
+    [Header("Metodo de Cambio")]
+    public bool swapN;
+    public bool swapF=false;
+    public bool swapI=false;
+
+    [Header("WizNormal")]
+    public GameObject wizNormal;
     public Animator wiz_normal;
     public Sprite wiz_IdleN;
     public float speedN;
@@ -11,21 +21,27 @@ public class Player_Controller : MonoBehaviour {
 
 
     [Header("WizIce")]
+    public GameObject wizIce;
     public Animator wiz_ice;
     public Sprite wiz_IdleI;
     public float speedI;
     public bool activeWI;
 
     [Header("WizFire")]
+    public GameObject wizFire;
     public Animator wiz_fire;
-    public Sprite wiz_IdleF;
     public float speedF;
     public bool activeWF;
+
+    public void Awake()
+    {
+        
+    }
 
 
     // Use this for initialization
     void Start () {
-		
+        swapN = true;
 	}
 	
 	// Update is called once per frame
@@ -36,7 +52,9 @@ public class Player_Controller : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        MovimientoWizNormal();
+        if(swapN) MovimientoWizNormal();
+        if(swapF) MovimientoWizFire();
+        if(swapI) MovimientoWizIce();
     }
 
 
@@ -44,26 +62,107 @@ public class Player_Controller : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.A))
         {
-            if (!GetComponent<SpriteRenderer>().flipX)
+            if (!wizNormal.GetComponent<SpriteRenderer>().flipX)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
-            transform.Translate(-speedN * Time.deltaTime, 0, 0);
+            wizNormal.transform.Translate(-speedN * Time.deltaTime, 0, 0);
             wiz_normal.SetBool("walkN", true);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            if (GetComponent<SpriteRenderer>().flipX)
+            if (wizNormal.GetComponent<SpriteRenderer>().flipX)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                wizNormal.GetComponent<SpriteRenderer>().flipX = false;
             }
-            transform.Translate(speedN * Time.deltaTime, 0, 0);
+            wizNormal.transform.Translate(speedN * Time.deltaTime, 0, 0);
             wiz_normal.SetBool("walkN", true);
         }
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             wiz_normal.SetBool("walkN", false);
         }
+    }
+
+
+    public void MovimientoWizFire()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            if (!wizFire.GetComponent<SpriteRenderer>().flipX)
+            {
+                wizFire.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            wizFire.transform.Translate(-speedF * Time.deltaTime, 0, 0);
+            wiz_fire.SetBool("walkF", true);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            if (wizFire.GetComponent<SpriteRenderer>().flipX)
+            {
+                wizFire.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            wizFire.transform.Translate(speedF * Time.deltaTime, 0, 0);
+            wiz_fire.SetBool("walkF", true);
+        }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            wiz_fire.SetBool("walkF", false);
+        }
+    }
+
+    public void MovimientoWizIce()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            if (!wizIce.GetComponent<SpriteRenderer>().flipX)
+            {
+                wizIce.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            wizIce.transform.Translate(-speedI * Time.deltaTime, 0, 0);
+            wiz_ice.SetBool("walkI", true);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            if (wizIce.GetComponent<SpriteRenderer>().flipX)
+            {
+                wizIce.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            wizIce.transform.Translate(speedI * Time.deltaTime, 0, 0);
+            wiz_ice.SetBool("walkI", true);
+        }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            wiz_ice.SetBool("walkI", false);
+        }
+    }
+
+    public void ActiveSwapNormal()
+    {
+        if (Input.GetKey(KeyCode.N))
+        {
+            swapN = true;
+        }
+        else swapN = false;
+
+    }
+
+    public void ActiveSwapFire()
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            swapF = true;
+        }
+        else swapF = false;
+    }
+
+    public void ActiveSwapIce()
+    {
+        if (Input.GetKey(KeyCode.I))
+        {
+            swapI = true;
+        }
+        else swapF = false;
     }
 
 }
