@@ -7,54 +7,38 @@ public class Player_Controller : MonoBehaviour {
 
     /*Boton de cambio debe ser implementado en un metodo donde lo llame un boton de la UI Boton-Player*/
 
+    Magos Wizzard;
+
     [Header("Metodo de Cambio")]
     public bool swapN;
-    public bool swapF=false;
-    public bool swapI=false;
+    public bool swapF = false;
+    public bool swapI = false;
 
-    [Header("WizNormal")]
-    public GameObject wizNormal;
-    public Animator wiz_normal;
-    public Sprite wiz_IdleN;
-    public float speedN;
-    public bool activeWN;
-
-
-    [Header("WizIce")]
-    public GameObject wizIce;
-    public Animator wiz_ice;
-    public Sprite wiz_IdleI;
-    public float speedI;
-    public bool activeWI;
-
-    [Header("WizFire")]
-    public GameObject wizFire;
-    public Animator wiz_fire;
-    public float speedF;
-    public bool activeWF;
+    [Header("Wizzard")]
+    public GameObject[] wizzards;
 
     public void Awake()
     {
-        
+
     }
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         swapN = true;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
     {
-        if(swapN) MovimientoWizNormal();
-        if(swapF) MovimientoWizFire();
-        if(swapI) MovimientoWizIce();
+        if (swapN) MovimientoWizNormal();
+        if (swapF) MovimientoWizFire();
+        if (swapI) MovimientoWizIce();
     }
 
 
@@ -164,6 +148,13 @@ public class Player_Controller : MonoBehaviour {
         }
         else swapF = false;
     }
+
+    public enum Magos
+    {
+        fire,
+        ice,
+        normal,
+     } 
 
 }
 /* hacer que las animaciones cambien dependiendo del bool que tengan, digamos que el wF esta activo y esta en la animación de idle
